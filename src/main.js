@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import store from './store'
+import router from './router'
+// 引入混合
+import mixin from './mixins'
+
+
 
 // 引入默认样式
 import '../static/css/noremall.css';
@@ -53,9 +58,10 @@ Vue.use(TabPane)
 Vue.use(Popover)
 
 
-
+Vue.mixin(mixin)
 new Vue({
     el: '#app',
     render: h => h(App),
-    store
+    store,
+    router
 })
