@@ -5,17 +5,25 @@
       传入参数为：{{id}}
 
     </div>
+    <div>
+      <el-button v-for='(item,index) in lists' :key='index'>{{item}}</el-button>
+
+    </div>
 
 </div>
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex'
 export default {
     data(){
       return {
         msg:'this is Two !',
         id:''
       }
+    },
+    computed:{
+      ...mapGetters(['lists'])
     },
     beforeRouteEnter(to,from,next){
       // console.log(to.params.id);

@@ -6,7 +6,11 @@ import router from './router'
 // 引入混合
 import mixin from './mixins'
 
+import * as filters from './filters'
 
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 // 引入默认样式
 import '../static/css/noremall.css';
