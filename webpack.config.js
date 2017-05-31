@@ -61,13 +61,13 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map',
+    // devtool: '#eval-source-map',
     devServer: {
         contentBase: path.join(__dirname, "dist/"),
         compress: true,
-        host:ip.address(),
+        host: ip.address(),
         port: 8888,
-        hot:true
+        hot: true
     },
     plugins: [
         new ExtractTextPlugin("app.css"),
@@ -88,6 +88,7 @@ module.exports = {
     ]
 }
 if (process.env.NODE_ENV === 'development') {
+    module.exports.devtool = '#eval-source-map'
 
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
@@ -98,7 +99,7 @@ if (process.env.NODE_ENV === 'development') {
     ])
 }
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
+    // module.exports.devtool = '#source-map'
 
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.DefinePlugin({
@@ -109,7 +110,9 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
-                warnings: false
+                warnings: false,
+                drop_debugger: true,
+                drop_console: true
             }
         }),
         new webpack.LoaderOptionsPlugin({
