@@ -3,10 +3,8 @@ import {
 
 } from './mutation-types.js'
 
-
-
 export default {
-	[ADD_LISTS](state,{data}){
+  [ADD_LISTS] (state, {data}) {
     state.lists.push(data)
   }
 

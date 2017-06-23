@@ -1,4 +1,4 @@
 export default {
-  lists:state =>{ return state.lists}
+  lists: state => { return state.lists }
 
 }

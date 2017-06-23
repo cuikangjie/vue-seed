@@ -13,7 +13,7 @@ Object.keys(filters).forEach(key => {
 })
 
 // 引入默认样式
-import '../static/css/noremall.css';
+import '../static/css/noremall.css'
 
 import {
     Pagination,
@@ -61,11 +61,11 @@ Vue.use(TabPane)
 
 Vue.use(Popover)
 
-
 Vue.mixin(mixin)
+/* eslint-disable  no-new */
 new Vue({
-    el: '#app',
-    render: h => h(App),
-    store,
-    router
+  el: '#app',
+  render: h => h(App),
+  store,
+  router
 })

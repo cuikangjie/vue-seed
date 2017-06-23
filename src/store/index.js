@@ -7,14 +7,14 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-	lists:['one','two','there']
+  lists: ['one', 'two', 'there']
 }
 
 export default new Vuex.Store({
-	state,
-	getters,
-	actions,
-	mutations,
-	strict: true
+  state,
+  getters,
+  actions,
+  mutations,
+  strict: true
 
 })

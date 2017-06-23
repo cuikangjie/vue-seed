@@ -7,11 +7,11 @@
 <script>
 import Main from './view/main.vue'
 export default {
-    name: 'app',
-    components:{
-      Main
+  name: 'app',
+  components: {
+    Main
 
-    }
+  }
 }
 </script>
 

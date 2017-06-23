@@ -14,25 +14,25 @@
 </template>
 
 <script>
-import {mapGetters,mapActions} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
-    data(){
-      return {
-        msg:'this is One !',
-        data:'',
-        time:new Date().getTime()
-      }
-    },
-    computed:{
-      ...mapGetters(['lists'])
-    },
-    methods:{
-      ...mapActions(['addOne']),
-      click(){
-        this.addOne(this.data)
-        this.data= '';
-      }
+  data () {
+    return {
+      msg: 'this is One !',
+      data: '',
+      time: new Date().getTime()
     }
+  },
+  computed: {
+    ...mapGetters(['lists'])
+  },
+  methods: {
+    ...mapActions(['addOne']),
+    click () {
+      this.addOne(this.data)
+      this.data = ''
+    }
+  }
 }
 </script>
 
