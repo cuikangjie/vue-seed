@@ -10,11 +10,12 @@ const state = {
 	lists:['one','two','there']
 }
 
-export default new Vuex.Store({
-	state,
-	getters,
-	actions,
-	mutations,
-	strict: true
-
-})
+export function createStore () {
+  return new Vuex.Store({
+			state,
+			getters,
+			actions,
+			mutations,
+			strict: true
+  })
+}

@@ -22,9 +22,9 @@ export default {
         id:''
       }
     },
-    computed:{
-      ...mapGetters(['lists'])
-    },
+    computed:Object.assign({},
+        mapGetters(['lists'])
+    ),
     beforeRouteEnter(to,from,next){
       // console.log(to.params.id);
       next((vm)=>{
