@@ -11,8 +11,8 @@ module.exports = {
     ? false
     : '#cheap-module-source-map',
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, '../dist/page/'),
+    publicPath: '/dist/page/',
     filename: '[name].[chunkhash].js'
   },
   resolve: {

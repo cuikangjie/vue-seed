@@ -11,7 +11,7 @@ const config = merge(base, {
   },
   resolve: {
     alias: {
-      'create-api': './create-api-client.js'
+
     }
   },
   plugins: [
@@ -38,39 +38,14 @@ const config = merge(base, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
     }),
-    new VueSSRClientPlugin()
+    new VueSSRClientPlugin({filename:'client.json'})
   ]
 })
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(
-    // auto generate service worker
-    new SWPrecachePlugin({
-      cacheId: 'vue-hn',
-      filename: 'service-worker.js',
-      minify: true,
-      dontCacheBustUrlsMatching: /./,
-      staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/],
-      runtimeCaching: [
-        {
-          urlPattern: '/',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: /\/(top|new|show|ask|jobs)/,
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/item/:id',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/user/:id',
-          handler: 'networkFirst'
-        }
-      ]
-    })
-  )
+  // config.plugins.push(
+  //   // auto generate service worker
+  // )
 }
 
 module.exports = config
