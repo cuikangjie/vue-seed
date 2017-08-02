@@ -14,6 +14,7 @@ export default context => {
     if (fullPath !== url) {
       reject({ url: fullPath })
     }
+    console.log('>>>>>>>>>>>>>>>>>> 页面',url);
 
 
     router.push(url)
@@ -21,6 +22,7 @@ export default context => {
     // wait until router has resolved possible async hooks
     router.onReady(() => {
       const matchedComponents = router.getMatchedComponents()
+      console.log('>>>>>>>>>>>>>>>>>>>',matchedComponents.length);
       // 没有匹配的页面
       if (!matchedComponents.length) {
         reject({ code: 404 })

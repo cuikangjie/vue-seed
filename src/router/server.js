@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 function getRouter(name) {
-    return () => import(`../view/${name}.vue`)
+    return () => import(`../view/server/${name}.vue`)
 }
 
 

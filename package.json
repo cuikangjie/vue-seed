@@ -4,7 +4,9 @@
   "author": "Evan You <yyx990803@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "babel-node ./tools/server.js",
+    "dev":"npm run dev:spa && npm run dev:ssr",
+    "dev:ssr": "babel-node ./tools/server.js",
+    "dev:spa":"babel-node ./build/dev-server.js",
     "start": "cross-env NODE_ENV=production babel-node ./tools/server.js",
     "build": "rimraf dist && npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
@@ -53,6 +55,8 @@
     "webpack-hot-middleware": "^2.17.1",
     "webpack-merge": "^4.0.0",
     "webpack-node-externals": "^1.5.4",
-    "webpack-bundle-analyzer":"^2.8.3"
+    "webpack-bundle-analyzer":"^2.8.3",
+
+    "eventsource-polyfill": "^0.9.6"
   }
 }

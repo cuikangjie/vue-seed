@@ -1,7 +1,7 @@
 <template>
 <div class="main">
     <div>
-        <h1>Vue-Seed</h1>
+        <h1>Vue-Seed  Server</h1>
         <h3>By kin</h3>
     </div>
     <div>
@@ -16,9 +16,9 @@
 
 <script>
 export default {
-  components: {
+    components: {
 
-  }
+    }
 }
 </script>
 

@@ -1,10 +1,8 @@
 import Vue from 'vue'
-import App from './server.vue'
+import App from './App.vue'
 
-import { createStore } from './store/server'
-import { createRouter } from './router/server.js'
-
-import { sync } from 'vuex-router-sync'
+import store from './store'
+import router from './router'
 // 引入混合
 import mixin from './mixins'
 
@@ -13,9 +11,9 @@ import * as filters from './filters'
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
-Vue.mixin(mixin)
+
 // 引入默认样式
-import '../static/css/noremall.css';
+import '../static/css/noremall.css'
 
 import {
     Pagination,
@@ -35,7 +33,7 @@ import {
     TabPane,
     Popover
 } from 'element-ui'
-// 输入框 单选框 按钮
+
 // 输入框 单选框 按钮
 Vue.use(Input)
 Vue.use(Radio)
@@ -64,21 +62,10 @@ Vue.use(TabPane)
 Vue.use(Popover)
 
 Vue.mixin(mixin)
-
-
-export function createApp () {
-
-  const store = createStore()
-  const router = createRouter()
-
-  sync(store, router)
-
-
-  const app = new Vue({
-    router,
-    store,
-    render: h => h(App)
-  })
-
-  return { app, router, store }
-}
+/* eslint-disable  no-new */
+new Vue({
+  el: '#app',
+  render: h => h(App),
+  store,
+  router
+})

@@ -1,8 +1,16 @@
 {
   "presets": [
+    "babel-preset-es2015",
+    "babel-preset-stage-2",
     ["env", { "modules": false }]
   ],
   "plugins": [
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    ["component", [
+      {
+        "libraryName": "element-ui",
+         "styleLibraryName": "~theme"
+      }
+    ]]
   ]
 }

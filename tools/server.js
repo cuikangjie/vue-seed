@@ -38,10 +38,13 @@ if (isProd) {
     clientManifest
   })
 } else {
+  // require('../build/dev-server.js')(app);
   // 开发热更新
   readyPromise = require('../build/setup-dev-server')(app, (bundle, options) => {
     renderer = createRenderer(bundle, options)
   })
+
+
 }
 
 const serve = (path, cache) => express.static(resolve(path), {
@@ -51,7 +54,8 @@ const serve = (path, cache) => express.static(resolve(path), {
 app.use(compression({ threshold: 0 }))
 // app.use(favicon('./public/logo-48.png'))
 app.use('/dist', serve('../dist', true))
-// app.use('/public', serve('./public', true))
+app.use('/static', serve('../dist/static', true))
+
 app.use('/service-worker.js', serve('../dist/service-worker.js'))
 
 // 1-second microcache.
@@ -96,7 +100,9 @@ function render (req, res) {
     }
   })
 }
-
+app.get('/admin', (req, res) => {
+  res.end(fs.readFileSync(resolve('../dist/index.html'), 'utf-8'))
+})
 app.get('*', isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res))
 })
