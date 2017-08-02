@@ -1,4 +1,4 @@
-import { createApp } from './main'
+import { createApp } from './server'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
@@ -31,7 +31,7 @@ export default context => {
         route: router.currentRoute
       }))).then(() => {
         isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`)
-        console.log(store.state);
+        // console.log(store.state);
 
 
         context.state = store.state

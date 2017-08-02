@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import 'es6-promise/auto'
-import { createApp } from './main'
+import { createApp } from './server'
 
 Vue.mixin({
   beforeRouteUpdate (to, from, next) {
